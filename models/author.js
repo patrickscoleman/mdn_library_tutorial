@@ -40,6 +40,18 @@ AuthorSchema.virtual("date_of_death_formatted").get(function () {
   return this.date_of_death ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED) : '';
 });
 
+// Virtual for html form formatted date of birth
+AuthorSchema.virtual("date_of_birth_form_format").get(function () {
+  console.log(DateTime.fromJSDate(this.date_of_birth).toISODate());
+  return this.date_of_birth ? DateTime.fromJSDate(this.date_of_birth).toISODate() : '';
+});
+
+// Virtual for html form formatted date of death
+AuthorSchema.virtual("date_of_death_form_format").get(function () {
+  console.log(DateTime.fromJSDate(this.date_of_death).toISODate());
+  return this.date_of_death ? DateTime.fromJSDate(this.date_of_death).toISODate() : '';
+});
+
 // Virtual for formatted lifespan
 AuthorSchema.virtual("lifespan").get(function () {
   if (this.date_of_birth) {
